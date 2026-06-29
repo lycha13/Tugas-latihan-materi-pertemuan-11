@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HSR x Fate Collaboration Leaks</title>
+</head>
+
+<style>
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Segoe UI', sans-serif;
+    padding-top: 70px;
+    color: #ffffff;
+    background-image: url('https://preview.redd.it/is-there-anyone-here-who-started-playing-hsr-because-of-the-v0-rdrqw2d438cf1.png?auto=webp&s=5e0f85ea0182c2b5a1c953412bbc20af88d88d7b');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 70px;
+    background: #111b2d; /* Menggelapkan warna nav agar lebih menyatu dengan tema */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 30px;
+    z-index: 1000;
+    border-bottom: 2px solid #1565C0;
+}
+
+.navbar .logo-text {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 1.5rem;
+    font-weight: 800;
+    letter-spacing: 2px;
+    font-family: 'Ubuntu', 'Segoe UI', sans-serif;
+}
+
+.navbar .logo-text .highlight {
+    color: #ffeb3b;
+    margin: 0 5px;
+}
+
+.nav-menu {
+    display: flex;
+    list-style: none;
+    gap: 20px;
+}
+
+.nav-menu a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.nav-menu a:hover {
+    color: #ffeb3b;
+}
+
+.hero {
+    padding: 60px 20px;
+    background: rgba(0, 0, 0, 0.65);
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.hero-text h1 {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+    color: #ffeb3b; 
+}
+
+.hero-text p {
+    font-size: 1.1rem;
+    max-width: 800px;
+    margin: 0 auto 10px auto;
+    line-height: 1.5;
+}
+
+@keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px); /* Mulai dari bawah 20px */
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);    /* Kembali ke posisi asli */
+            }
+        }
+
+        .text-fade-in {
+            font-size: 24px;
+            font-weight: bold;
+            color: #1565C0;
+            /* Berjalan selama 0.8s, efek ease, dan mempertahankan posisi akhir (forwards) */
+            animation: fadeIn 0.8s ease forwards; 
+        }
+
+/* ===== ANIMASI FADE IN (Untuk Hero Section) ===== */
+@keyframes heroFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.hero-fade {
+    animation: heroFadeIn 1.2s ease-out forwards;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.flip-container{
+    width:100%;
+    max-width:900px;
+    height:450px;
+    margin:20px auto;
+    perspective:1000px;
+}
+
+.flip-card{
+    width:100%;
+    height:100%;
+    position:relative;
+    transform-style:preserve-3d;
+    transition:.6s;
+}
+
+.flip-container:hover .flip-card{
+    transform:rotateY(180deg);
+}
+
+.card-front,
+.card-back{
+    position:absolute;
+    width:100%;
+    height:100%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    border-radius:10px;
+    backface-visibility:hidden;
+}
+
+.card-back{
+    color:white;
+    transform:rotateY(180deg);
+}
+
+@keyframes spin{
+    from{transform:rotate(0);}
+    to{transform:rotate(360deg);}
+}
+
+.spinner{
+    width:40px;
+    height:40px;
+    border:5px solid #ddd;
+    border-top:5px solid #1565C0;
+    border-radius:50%;
+    margin:20px auto;
+    animation:spin .8s linear infinite;
+}
+
+section {
+    margin-bottom: 50px;
+    background: rgba(10, 15, 26, 0.8); /* Latar belakang kotak dibuat lebih pekat demi legibilitas teks */
+    padding: 30px;
+    border-radius: 8px;
+    border: 1px solid rgba(21, 101, 192, 0.3);
+}
+
+section h1, section h2 {
+    margin-bottom: 20px;
+    border-bottom: 3px solid #1565C0;
+    padding-bottom: 10px;
+    color: #fff;
+}
+
+section h3 {
+    margin: 25px 0 15px 0;
+    color: #ffeb3b;
+}
+
+section p {
+    line-height: 1.6;
+    margin-bottom: 15px;
+    color: #e0e0e0;
+}
+
+#leaks img {
+    width: 100%;
+    max-height: 450px;
+    object-fit: cover;
+    border-radius: 6px;
+    margin: 15px 0;
+    display: block;
+}
+
+.galeri-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.galeri-item {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.galeri-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+}
+
+.galeri-item img {
+    width: 100%;
+    height: 300px;
+    object-fit: contain;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: block;
+}
+
+.galeri-item .caption {
+    padding: 12px;
+    text-align: center;
+    font-size: 0.95rem;
+    font-weight: bold;
+    background: rgba(21, 101, 192, 0.9);
+    color: white;
+}
+
+.contact {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.contact form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.contact input, .contact textarea {
+    padding: 12px;
+    border-radius: 4px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    font-size: 1rem;
+}
+
+.contact input::placeholder, .contact textarea::placeholder {
+    color: #ddd;
+}
+
+.magic-btn {
+    padding: 14px;
+    background: #1565C0;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.magic-btn:hover {
+    background: #0d47a1;
+}
+</style>
+
+<body>
+
+    <nav class="navbar">
+        <a href="#home" class="logo-text">
+            HSR<span class="highlight">×</span>FATE
+        </a>
+        
+        <ul class="nav-menu">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#tentang">Tentang</a></li>
+            <li><a href="#leaks">Leaks</a></li>
+            <li><a href="#galeri">Galeri</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <header id="home" class="hero">
+        <div class="hero-text">
+            <h1>Selamat datang di Hsr × Fate Leak</h1>
+            <p>Website ini menyajikan berbagai informasi mengenai kolaborasi Honkai: Star Rail × Fate/stay night [Unlimited Blade Works], mulai dari karakter, animasi, gameplay, banner, Light Cone, event, hingga aset yang ditemukan selama tahap beta.</p>
+            <p>Seluruh informasi dapat berubah sebelum perilisan resmi.</p>
+        </div>
+    </header>
+
+    <div class="container">
+        <section id="tentang">
+            <h1>Tentang Leaks Kolaborasi</h1>
+            <p>
+                Dibuat oleh penggemar, untuk penggemar (Yang sebenarnya untuk pemenuhan tugas).
+                Website ini menjadi tempat berkumpulnya berbagai informasi mengenai kolaborasi Honkai: Star Rail × Fate/stay night [Unlimited Blade Works]. Mulai dari bocoran karakter, gameplay, event, hingga berita resmi, semuanya disusun agar mudah diakses dan selalu mengikuti perkembangan terbaru.
+                Kami berharap website ini dapat menjadi referensi bagi seluruh Trailblazer yang menantikan kolaborasi spesial ini.
+            </p>
+        </section>
+
+        <section id="leaks">
+            <h2>Kolaborasi Phase 1 di versi 3.7 sebelumnya</h2>
+            <img src="https://i.ytimg.com/vi/wsMxcMH0d5c/maxresdefault.jpg" alt="Event Colaboration Version 3.7">
+            <p>Kolaborasi Gelombang Pertama menghadirkan Saber dan Archer sebagai karakter bintang 5 eksklusif. Selain banner terbatas, pemain juga dapat menikmati event kolaborasi, misi khusus, serta berbagai hadiah yang tersedia selama periode event berlangsung.</p>
+            <p>Event cerita kolaborasi mengajak Trailblazer memasuki Holy Grail War, sebuah konflik yang mempertemukan dunia Honkai: Star Rail dengan Fate/stay night [Unlimited Blade Works]. Bersama karakter-karakter ikonik dari seri Fate, pemain akan mengikuti alur cerita exclusif, menghadapi musuh baru, dan memperoleh berbagai hadiah selama event berlangsung.</p>
+          
+            <!-- Flip Card Phase 1 (Saber & Archer) -->
+            <div class="flip-container">
+                <div class="flip-card">
+                    <div class="card-front">
+                        <img src="https://act-upload.hoyoverse.com/event-ugc-hoyowiki/2025/07/11/307468034/04de2c921bbedf00c41e60b599cab85b_2758227924727400111.png?x-oss-process=image%2Fformat%2Cwebp" alt="Promotional Art Saber">
+                    </div>
+                    <div class="card-back">
+                        <img src="https://upload-os-bbs.hoyolab.com/upload/2025/05/04/171300436/1f72c6fa3a040d81d23103bce8cddae3_4627503003004621818.webp?x-oss-process=image%2Fresize%2Cs_1000%2Fauto-orient%2C0%2Finterlace%2C1%2Fformat%2Cwebp%2Fquality%2Cq_70" alt="Promotional Art Archer">
+                    </div>
+                </div>
+            </div>
+
+            <h2>Kolaborasi Phase 2 di versi 4.4 mendatang</h2>
+            <img src="https://upload-os-bbs.hoyolab.com/upload/2026/05/22/112320737/9eb809e8fc33b12af2d5035f903753f7_5950617382726964302.jpeg" alt="Event Colaboration Version 4.4 Coming Soon">
+            <p>Kolaborasi Gelombang Kedua melanjutkan kerja sama antara Honkai: Star Rail dan Fate/stay night [Unlimited Blade Works] dengan menghadirkan Rin Tohsaka dan Gilgamesh. Selain karakter baru, gelombang ini juga diperkirakan membawa kelanjutan cerita, event eksklusif, serta berbagai konten kolaborasi yang memperluas pengalaman Holy Grail War di Honkai: Star Rail.</p>
+
+            <!-- Flip Card Phase 2 (Rin & Gilgamesh) -->
+            <div class="flip-container">
+                <div class="flip-card">
+                    <div class="card-front">
+                        <img src="https://upload-os-bbs.hoyolab.com/upload/2026/05/22/171300436/61632b0fafda84779a54d8c570ed37ab_8775590797436521248.webp?x-oss-process=image%2Fresize%2Cs_1000%2Fauto-orient%2C0%2Finterlace%2C1%2Fformat%2Cwebp%2Fquality%2Cq_70" alt="Promotional Art Rin">
+                    </div>
+                    <div class="card-back">
+                        <img src="https://upload-os-bbs.hoyolab.com/upload/2026/05/22/171300436/bb4e5fa96a12a8e8c1c6a859ba79653b_3033473362581954903.webp?x-oss-process=image%2Fresize%2Cs_1000%2Fauto-orient%2C0%2Finterlace%2C1%2Fformat%2Cwebp%2Fquality%2Cq_70" alt="Promotional Art Gilgamesh">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        </section>
+
+        <div class="spinner-container">
+            <div class="spinner"></div>
+        </div>
+
+        <section>
+
+        <section id="galeri">
+            <h2>Galeri Character Colaboration Phase 1</h2>
+
+            <h3>Saber</h3>
+            <div class="galeri-grid">
+                <div class="galeri-item">
+                    <img src="https://act-upload.hoyoverse.com/event-ugc-hoyowiki/2025/07/11/307468034/04de2c921bbedf00c41e60b599cab85b_2758227924727400111.png?x-oss-process=image%2Fformat%2Cwebp" alt="Promotional Art">
+                    <div class="caption">Promotional Art</div>
+                </div>
+                <div class="galeri-item">
+                    <img src="https://act-upload.hoyoverse.com/event-ugc-hoyowiki/2025/07/11/307468034/12992025b1bdb96c8410fe378176982b_4514491076434325505.png?x-oss-process=image%2Fformat%2Cwebp" alt="Splash Art">
+                    <div class="caption">Splash Art</div>
+                </div>
+                <div class="galeri-item">
+                    <img src="https://act-upload.hoyoverse.com/event-ugc-hoyowiki/2025/07/11/307468034/0b1230ead5c95a70f61495177a07b8e1_7162299481757381259.gif" alt="Animation Idle 1">
+                    <div class="caption">Animation Idle 1</div>
+                </div>
+                <div class="galeri-item">
+                    <img src="https://act-upload.hoyoverse.com/event-ugc-hoyowiki/2025/07/11/307468034/739902a5d97c857d20f80a01726ffb2b_3786136808332902770.gif" alt="Animation Idle 2">
+                    <div class="caption">Animation Idle 2</div>
+                </div>
+                <div class="galeri-item">
+                    <img src="https://scontent-cgk1-2.xx.fbcdn.net/v/t39.30808-6/500113164_122262533036028529_1184988502455109727_n.jpg?stp=dst-jpg_tt6&amp;cstp=mx1080x720&amp;ctp=s1080x720&amp;_nc_cat=108&amp;ccb=1-7&amp;_nc_sid=aa7b47&amp;_nc_ohc=DDGYhz4xsroQ7kNvwFG-Doy&amp;_nc_oc=AdoIfDxtiP9L_tZcmO4k-Ya_j-tfVwu3N6e4aJERtJ6SXx3E6tUTwYunhRNk69mV7G10RIJImLUoZdZgxrIu-OvA&amp;_nc_zt=23&amp;_nc_ht=scontent-cgk1-2.xx&amp;_nc_gid=gN7jJr27hrc2Jx1Ym53apA&amp;_nc_ss=7b289&amp;oh=00_Af-jh2T1mLKmcKEM0pJSTRbIqokdMXTsHvs1528CfD7qtg&amp;oe=6A4859A8" alt="Saber Eidolons">
+                    <div class="caption">Saber Eidolons</div>
+                </div>
+                <div class="galeri-item">
+                    <img src="https://preview.redd.it/saber-light-cone-art-v0-f727v4g5v82f1.jpeg?width=640&amp;crop=smart&amp;auto=webp&amp;s=1cfb916da81c6526c46ad57fe2682ccf55a6f7a8" alt="Saber Light Cone">
+                    <div class="caption">Saber Light Cone</div>
+                </div>
+            </div>
+
+            <h3>Archer</h3>
+            <div class="galeri-grid">
+                <div class="galeri-item">
+                    <img src="https://static.wikia.nocookie.net/houkai-star-rail/images/a/aa/Character_Archer_Introduction.png/revision/latest?cb=20250503134128" alt="Promotional Art">
+                    <div class="caption">Promotional Art</div>
+                </div>
+                <div class="galeri-item">
+                    <img src="https://act-webstatic.hoyoverse.com/event-static-hoyowiki-admin/2025/07/11/c823a1de9591e69993ee68a6b4f1fe04_3269236636149080758.png?x-oss-process=image%2Fformat%2Cwebp" alt="Splash Art">
+                    <div class="caption">Splash Art</div>
+                </div>
+                <div class="galeri-item">
+                    <img src="https://act-webstatic.hoyoverse.com/event-static-hoyowiki-admin/2025/07/11/c31ddf0147324f596f797169e36d62d6_8732655916132982306.gif" alt="Animation Idle 1">
+                    <div class="caption">Animation Idle 1</div>
+                </div>
+                <div class="galeri-item">
+                    <img src="https://act-webstatic.hoyoverse.com/event-static-hoyowiki-admin/2025/07/11/5bcdc5e4a1d9bafb64278a46401c683f_1587746555040072658.gif" alt="Animation Idle 2">
+                    <div class="caption">Animation Idle 2</div>
+                </div>
+                <div class="galeri-item">
+                    <img src="https://scontent-cgk1-2.xx.fbcdn.net/v/t39.30808-6/499640814_122262533090028529_8309846920875659375_n.jpg?stp=dst-jpg_tt6&amp;cstp=mx1080x720&amp;ctp=s1080x720&amp;_nc_cat=108&amp;ccb=1-7&amp;_nc_sid=aa7b47&amp;_nc_ohc=Sa3h11xq7oAQ7kNvwFliVrW&amp;_nc_oc=Adp5gUp1HVhBpxJmaG3F2oSg-qRig-QUooFlU3M4wG6UVLNBjMHglZSkr5QyJh11_gqsEiF_T2Feph-PMGCDdPqD&amp;_nc_zt=23&amp;_nc_ht=scontent-cgk1-2.xx&amp;_nc_gid=0RBHwE00stmxGoE8SSARmA&amp;_nc_ss=7b289&amp;oh=00_Af9CWgVbdtLYmpdR5IdQfjPLHMIB2TPGkk59X_rCuLA0fg&amp;oe=6A485AAE" alt="Archer Eidolons">
+                    <div class="caption">Archer Eidolons</div>
+                </div>
+                <div class="galeri-item">
+                    <img src="https://scontent-cgk2-1.xx.fbcdn.net/v/t39.30808-6/502575288_3958309757752596_1951162959669317123_n.jpg?stp=dst-jpg_tt6&amp;cstp=mx904x1260&amp;ctp=s904x1260&amp;_nc_cat=103&amp;ccb=1-7&amp;_nc_sid=aa7b47&amp;_nc_ohc=6gCjhYvqnNEQ7kNvwGYYLgl&amp;_nc_oc=AdpsKzz4c_qoWkd3-1NqAcci0pSbDYMZh_iPmyX0lZX6pE-F5C2ds_5ucgZ5fGNz6uwMUzKEdzatxuPlNE0fbViH&amp;_nc_zt=23&amp;_nc_ht=scontent-cgk2-1.xx&amp;_nc_gid=1ze1x7dHCbJvevp18XCQww&amp;_nc_ss=7b289&amp;oh=00_Af_BDb6UHkSrjG0OeMGYKMeWXPhq7cb7pR72wtbKDXhj5A&amp;oe=6A486C09" alt="Archer Light Cone">
+                    <div class="caption">Archer Light Cone</div>
+                </div>
+            </div>
+
+            <h2>Galeri Character Colaboration Phase 2</h2>
+
+            <h3>Rin Tohsaka</h3>
+            <div class="galeri-grid">
+                <div class="galeri-item">
+                    <img src="https://upload-os-bbs.hoyolab.com/upload/2026/05/22/171300436/61632b0fafda84779a54d8c570ed37ab_8775590797436521248.webp?x-oss-process=image%2Fresize%2Cs_1000%2Fauto-orient%2C0%2Finterlace%2C1%2Fformat%2Cwebp%2Fquality%2Cq_70" alt="Promotional Art">
+                    <div class="caption">Promotional Art</div>
+                </div>
+                <div class="galeri-item">
+                    <img src="https://starrail.honeyhunterworld.com/img/character/rin-tohsaka-character_cut_in_front.webp" alt="Splash Art">
+                    <div class="caption">Splash Art</div>
+                </div>
+                <div class="galeri-item">
+                    <img src="https://scontent-cgk2-1.xx.fbcdn.net/v/t39.30808-6/712626790_1446655237503306_4748451851844058527_n.jpg?stp=dst-jpg_tt6&amp;cstp=mx2048x1536&amp;ctp=s2048x1536&amp;_nc_cat=106&amp;ccb=1-7&amp;_nc_sid=833d8c&amp;_nc_ohc=S4heWb-hKRsQ7kNvwHz5oL5&amp;_nc_oc=AdqXZv1_qxiNYzz1_b6CwDGx1jQwrpaPZdjlOco5Z5aHj5IGPkiOk6M2qFGaiKzMK3W0PS6JC9F1NV-mqI4dpeNf&amp;_nc_zt=23&amp;_nc_ht=scontent-cgk2-1.xx&amp;_nc_gid=QokiTz--FDaqzuQ4cdpnDw&amp;_nc_ss=7b289&amp;oh=00_Af9JbJH4FZcimsDUbD--bUqJ_vxqbsHP-D7-_oVwAarCIA&amp;oe=6A484814" alt="Rin Eidolons">
+                    <div class="caption">Rin Eidolons</div>
+                </div>
+                <div class="galeri-item">
+                    <img src="https://scontent-cgk1-2.xx.fbcdn.net/v/t39.30808-6/712160543_1446655194169977_2892204603165565576_n.jpg?stp=dst-jpg_tt6&amp;cstp=mx904x1260&amp;ctp=s904x1260&amp;_nc_cat=107&amp;ccb=1-7&amp;_nc_sid=833d8c&amp;_nc_ohc=a6YDw8TCL98Q7kNvwHV-5cE&amp;_nc_oc=Adq_WtBYEwpkCRLh24k2xH-BxLiZf_kKirURaObGaCVxZwP991yWCirLC-gdzfI4vKO7qu2L99uKBJS_wjZQjFVc&amp;_nc_zt=23&amp;_nc_ht=scontent-cgk1-2.xx&amp;_nc_gid=RYlt7Mwi594A-E4A6PCamQ&amp;_nc_ss=7b289&amp;oh=00_Af-ikk2d27eCUJ-1zunClyKyiobtzK2gwoXG7xcVovi0kg&amp;oe=6A486FD7" alt="Rin Tohsaka Light Cone">
+                    <div class="caption">Rin Tohsaka Light Cone</div>
+                </div>
+            </div>
+
+            <h3>Gilgamesh</h3>
+            <div class="galeri-grid">
+                <div class="galeri-item">
+                    <img src="https://upload-os-bbs.hoyolab.com/upload/2026/05/22/171300436/bb4e5fa96a12a8e8c1c6a859ba79653b_3033473362581954903.webp?x-oss-process=image%2Fresize%2Cs_1000%2Fauto-orient%2C0%2Finterlace%2C1%2Fformat%2Cwebp%2Fquality%2Cq_70" alt="Promotional Art">
+                    <div class="caption">Promotional Art</div>
+                </div>
+                <div class="galeri-item">
+                    <img src="https://starrail.honeyhunterworld.com/img/character/gilgamesh-character_cut_in_front.webp" alt="Splash Art">
+                    <div class="caption">Splash Art</div>
+                </div>
+                <div class="galeri-item">
+                    <img src="https://pbs.twimg.com/media/HJyTw57XAAAk94W.jpg" alt="Gilgamesh Eidolons">
+                    <div class="caption">Gilgamesh Eidolons</div>
+                </div>
+                <div class="galeri-item">
+                    <img src="https://scontent-cgk2-1.xx.fbcdn.net/v/t39.30808-6/711869653_1977487793131244_3221741108441514432_n.jpg?stp=dst-jpg_tt6&amp;cstp=mx904x1260&amp;ctp=s904x1260&amp;_nc_cat=103&amp;ccb=1-7&amp;_nc_sid=f727a1&amp;_nc_ohc=hwpwSHTx1D8Q7kNvwEjkMx3&amp;_nc_oc=Adrnb1D0bbTtFebZl-zY9V0zgLKBehvjHGitFBDhgt_appWmlo6OhUqJOXrXMdGjJ0rRbPGefVHq3nGdXSETAl3J&amp;_nc_zt=23&amp;_nc_ht=scontent-cgk2-1.xx&amp;_nc_gid=w5JYTXaSUyU_sxoM7C6PLQ&amp;_nc_ss=7b289&amp;oh=00_Af_vanTfWESZCEYjG4ymyQPB38JkpHMJxGrE1VGwzhaDYQ&amp;oe=6A48538E" alt="Gilgamesh Light Cone">
+                    <div class="caption">Gilgamesh Light Cone</div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="contact">
+            <h1>Kenalan Lebih Lanjut</h1>
+            <form>
+                <input type="text" placeholder="Nama" required>
+                <input type="email" placeholder="Email" required>
+                <input type="text" placeholder="UID / Username" required>
+                <textarea rows="5" placeholder="Pesan" required></textarea>
+                <button type="submit" class="magic-btn">
+                    Kirim Perkenalan
+                </button>
+            </form>
+        </section>
+
+    </div>
+    
+</body>
+</html>

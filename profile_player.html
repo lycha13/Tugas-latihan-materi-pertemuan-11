@@ -1,0 +1,720 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HoYoverse Player Profile</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:'Segoe UI',sans-serif;
+    padding-top:70px;
+
+    background-image:url('https://wallpapercave.com/wp/wp13918059.png');
+    background-size:cover;
+    background-position:center;
+    background-attachment:fixed;
+}
+/* Navbar */
+.navbar{
+    position:fixed;
+    top:0;
+    width:100%;
+    height:70px;
+    background:#1565C0;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:0 30px;
+    z-index:1000;
+}
+
+.navbar h2{
+    color:white;
+}
+
+.nav-menu{
+    display:flex;
+    list-style:none;
+    gap:20px;
+}
+
+.nav-menu a{
+    color:white;
+    text-decoration:none;
+    font-weight:bold;
+}
+
+.nav-menu a:hover{
+    color:#FFD54F;
+}
+
+/* Hero */
+.hero{
+    position:relative;
+    height:450px;
+}
+
+.hero img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+
+.hero-text{
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    background:rgba(0,0,0,.6);
+    color:white;
+    padding:25px;
+    border-radius:10px;
+    text-align:center;
+}
+
+/* Content */
+.container{
+    max-width:1100px;
+    margin:auto;
+    padding:20px;
+}
+
+section{
+    background:white;
+    margin:20px 0;
+    padding:25px;
+    border-radius:10px;
+    box-shadow:0 3px 10px rgba(0,0,0,.1);
+}
+
+h1{
+    color:#1565C0;
+    margin-bottom:15px;
+}
+
+/* Team */
+.team-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:20px;
+}
+
+.card{
+    text-align:center;
+    border:1px solid #ddd;
+    border-radius:10px;
+    overflow:hidden;
+    text-decoration:none;
+    color:#333;
+    transition:.3s;
+    cursor:pointer;
+}
+
+.card:hover{
+    transform:translateY(-8px);
+    box-shadow:0 10px 20px rgba(0,0,0,.15);
+}
+
+.card img{
+    width:100%;
+    height:250px;
+    object-fit:cover;
+}
+
+.card h3{
+    padding:10px;
+}
+
+
+/* Form */
+.contact{
+    background:linear-gradient(135deg,#1565C0,#0D47A1);
+    color:white;
+}
+
+.contact h1{
+    color:white;
+}
+
+.contact form{
+    display:flex;
+    flex-direction:column;
+    gap:15px;
+}
+
+.contact input,
+.contact textarea{
+    padding:12px;
+    border:none;
+    border-radius:8px;
+}
+
+.contact button{
+    background:#FF5722;
+    color:white;
+    border:none;
+    padding:12px;
+    border-radius:8px;
+    cursor:pointer;
+}
+
+.contact button:hover{
+    background:#E65100;
+}
+
+/* Footer */
+footer{
+    text-align:center;
+    padding:20px;
+    background:#0D47A1;
+    color:white;
+}
+
+/* ===== ANIMASI ===== */
+
+/* Fade Hero */
+@keyframes fadeInUp{
+    from{
+        opacity:0;
+        transform:translate(-50%,-30%);
+    }
+    to{
+        opacity:1;
+        transform:translate(-50%,-50%);
+    }
+}
+
+.hero-text{
+    animation:fadeInUp 1s ease;
+}
+
+/* Typewriter */
+@keyframes typing{
+    from{width:0;}
+    to{width:100%;}
+}
+
+@keyframes blink{
+    50%{border-color:transparent;}
+}
+
+.typewriter{
+    overflow:hidden;
+    white-space:nowrap;
+    border-right:3px solid #1565C0;
+    width:0;
+    animation:
+        typing 3s steps(20,end) forwards,
+        blink .7s infinite;
+}
+
+/* Transform Box */
+.box-container{
+    display:flex;
+    gap:15px;
+    flex-wrap:wrap;
+    margin-top:20px;
+}
+
+.box{
+    width:80px;
+    height:80px;
+    transition:.3s;
+}
+
+/* Flip Card */
+.flip-container{
+    width:250px;
+    height:150px;
+    perspective:1000px;
+}
+
+.flip-card{
+    width:100%;
+    height:100%;
+    position:relative;
+    transform-style:preserve-3d;
+    transition:.6s;
+}
+
+.flip-container:hover .flip-card{
+    transform:rotateY(180deg);
+}
+
+.card-front,
+.card-back{
+    position:absolute;
+    width:100%;
+    height:100%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    border-radius:10px;
+    backface-visibility:hidden;
+}
+
+.card-back{
+    background:#1565C0;
+    color:white;
+    transform:rotateY(180deg);
+}
+
+/* Spinner */
+@keyframes spin{
+    from{transform:rotate(0);}
+    to{transform:rotate(360deg);}
+}
+
+.spinner{
+    width:40px;
+    height:40px;
+    border:5px solid #ddd;
+    border-top:5px solid #1565C0;
+    border-radius:50%;
+    margin:20px auto;
+    animation:spin .8s linear infinite;
+}
+
+.banner-grid{
+    display:flex;
+    gap:30px;
+    flex-wrap:wrap;
+}
+
+.flip-container{
+    width:300px;
+    height:200px;
+    perspective:1000px;
+}
+
+.flip-card{
+    width:100%;
+    height:100%;
+    position:relative;
+    transform-style:preserve-3d;
+    transition:0.8s;
+}
+
+.flip-container:hover .flip-card{
+    transform:rotateY(180deg);
+}
+
+.card-front,
+.card-back{
+    position:absolute;
+    width:100%;
+    height:100%;
+    backface-visibility:hidden;
+    border-radius:10px;
+    overflow:hidden;
+}
+
+.card-front img,
+.card-back img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+
+.card-front h3,
+.card-back h3{
+    position:absolute;
+    bottom:0;
+    width:100%;
+    background:rgba(0,0,0,.7);
+    color:white;
+    padding:10px;
+    text-align:center;
+}
+
+.card-back{
+    transform:rotateY(180deg);
+}
+
+.banner-image{
+    width:300px;
+}
+
+.banner-image img{
+    width:100%;
+    height:200px;
+    object-fit:cover;
+    border-radius:10px;
+    box-shadow:0 5px 15px rgba(0,0,0,.2);
+}
+
+/* Glow Button */
+@keyframes glow{
+    0%,100%{
+        box-shadow:0 0 5px #FF5722;
+    }
+    50%{
+        box-shadow:0 0 20px #FF5722;
+    }
+}
+
+.magic-btn{
+    animation:glow 1.5s infinite;
+}
+
+/* CTA */
+@keyframes pulse{
+    0%,100%{
+        transform:scale(1);
+    }
+    50%{
+        transform:scale(1.08);
+    }
+}
+
+.btn-cta{
+    display:inline-block;
+    padding:15px 25px;
+    background:#FF5722;
+    color:white;
+    text-decoration:none;
+    border-radius:10px;
+    animation:pulse 1.5s infinite;
+}
+
+/* =========================
+   RESPONSIVE ALL DEVICE
+========================= */
+
+/* Tablet */
+@media screen and (max-width:992px){
+
+    .navbar{
+        padding:0 20px;
+    }
+
+    .nav-menu{
+        gap:12px;
+    }
+
+    .hero{
+        height:350px;
+    }
+
+    .hero-text{
+        width:85%;
+        padding:20px;
+    }
+
+    .hero-text h1{
+        font-size:28px;
+    }
+
+    .container{
+        width:100%;
+        padding:15px;
+    }
+
+    .team-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .banner-grid{
+        justify-content:center;
+    }
+
+    .flip-container{
+        width:280px;
+        height:180px;
+    }
+}
+
+
+/* HP */
+@media screen and (max-width:768px){
+
+    body{
+        padding-top:120px;
+    }
+
+    .navbar{
+        flex-direction:column;
+        height:auto;
+        padding:10px;
+    }
+
+    .navbar h2{
+        margin-bottom:10px;
+        font-size:20px;
+    }
+
+    .nav-menu{
+        flex-wrap:wrap;
+        justify-content:center;
+        gap:10px;
+    }
+
+    .hero{
+        height:300px;
+    }
+
+    .hero-text{
+        width:90%;
+        padding:15px;
+    }
+
+    .hero-text h1{
+        font-size:24px;
+    }
+
+    .hero-text p{
+        font-size:14px;
+    }
+
+    section{
+        padding:18px;
+    }
+
+    h1{
+        font-size:24px;
+    }
+
+    .team-grid{
+        grid-template-columns:1fr;
+    }
+
+    .card img{
+        height:220px;
+    }
+
+    .banner-grid{
+        flex-direction:column;
+        align-items:center;
+    }
+
+    .flip-container{
+        width:100%;
+        max-width:320px;
+        height:200px;
+    }
+
+    .picture-container{
+        position:static;
+        width:100%;
+        max-width:320px;
+    }
+
+    .picture-container img{
+        width:100%;
+        height:auto;
+        border-radius:10px;
+    }
+
+    .contact form{
+        width:100%;
+    }
+
+    .contact input,
+    .contact textarea,
+    .contact button{
+        width:100%;
+    }
+
+    footer{
+        font-size:14px;
+    }
+}
+
+
+/* HP kecil */
+@media screen and (max-width:480px){
+
+    .hero{
+        height:250px;
+    }
+
+    .hero-text h1{
+        font-size:20px;
+    }
+
+    .hero-text p{
+        font-size:12px;
+    }
+
+    .navbar h2{
+        font-size:18px;
+    }
+
+    .nav-menu a{
+        font-size:13px;
+    }
+
+    h1{
+        font-size:20px;
+    }
+
+    .flip-container{
+        height:180px;
+    }
+}
+
+
+</style>
+</head>
+
+<body>
+
+<nav class="navbar">
+    <h2>Game Profile</h2>
+    <ul class="nav-menu">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">Tentang</a></li>
+        <li><a href="#team">Team</a></li>
+        <li><a href="#contact">Kenalan</a></li>
+    </ul>
+</nav>
+
+<header id="home" class="hero">
+    <div class="hero-text">
+        <h1>Selamat Datang</h1>
+        <p>Profil Player HoYoverse</p>
+        <p>Web ini ada untuk pemenuhan tugas</p>
+        <p>Kalau mau sekalian berkenalan sebagai sesama player juga boleh</p>
+    </div>
+</header>
+
+<div class="container">
+
+
+
+    
+<section id="about">
+    <div class="section">
+    <h1 class="typewriter">Tentang Player</h1></div>
+    <p>
+        Hai, saya Dhias_kun. Saya pemain Genshin Impact dan Honkai Star Rail
+        yang bermain menggunakan cloud gaming. Saya suka eksplorasi, lore,
+        dan theory crafting karakter.
+    </p>
+</section>
+
+<section id="team">
+
+<h1>Set Up Team</h1>
+
+<div class="team-grid">
+
+    <div class="card">
+        <img src="https://i.pinimg.com/736x/f8/f9/9f/f8f99fa298cfe317f151461563a1407a.jpg" alt="Nefer">
+        <h3>Nefer - Main DPS</h3>
+    </div>
+
+    <div class="card">
+        <img src="https://i.pinimg.com/1200x/75/03/16/750316af017a7a54e4663704d20ca701.jpg" alt="Kirara">
+        <h3>Kirara - Shield</h3>
+    </div>
+
+    <div class="card">
+        <img src="https://i.pinimg.com/1200x/b9/c9/ec/b9c9ecf016cb97fe572d43faf9efd50f.jpg" alt="Xingqiu">
+        <h3>Xingqiu - Hydro Support</h3>
+    </div>
+
+    <div class="card">
+        <img src="https://i.pinimg.com/736x/cc/fb/4a/ccfb4a07002c2f1b489158c33acbc098.jpg" alt="Aino">
+        <h3>Aino - Hydro Support</h3>
+    </div>
+
+</div>
+
+</section>
+
+        <div class="spinner-container">
+            <div class="spinner"></div>
+        </div>
+
+<section>
+
+<h1>Leaks Banner 6.7 Mendatang</h1>
+
+<div class="banner-grid">
+
+    <!-- Phase 1 -->
+    <div class="flip-container">
+
+        <div class="flip-card">
+
+            <div class="card-front">
+                <img src="https://www.u7buy.com/blog/wp-content/uploads/sandrone-2-1024x576.webp">
+            </div>
+
+            <div class="card-back">
+                <img src="https://www.u7buy.com/blog/wp-content/uploads/citlali-3-1024x576.webp">
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Phase 2 -->
+    <div class="flip-container">
+
+        <div class="flip-card">
+
+            <div class="card-front">
+                <img src="https://www.u7buy.com/blog/wp-content/uploads/columbina-1-1024x576.webp">
+            </div>
+
+            <div class="card-back">
+                <img src="https://www.u7buy.com/blog/wp-content/uploads/raiden-shogun-1-1024x576.webp" alt="">
+            </div>
+        </div>
+
+    </div>
+
+        <!-- Chronical Wish -->
+
+            <div class="banner-image">
+                <img src="https://staticg.sportskeeda.com/editor/2026/06/95b19-17817927978518-1920.jpg" alt="Chronicled Wish">
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+</section>
+
+<section id="contact" class="contact">
+
+    <h1>Kenalan Lebih Lanjut</h1>
+    <form>
+
+        <input type="text" placeholder="Nama">
+
+        <input type="email" placeholder="Email">
+
+        <input type="text" placeholder="UID / Username">
+
+        <textarea rows="5" placeholder="Pesan"></textarea>
+
+        <button class="magic-btn">
+            Kirim Perkenalan
+        </button>
+
+    </form>
+
+</section>
+
+</div>
+
+<footer>
+    © 2026 HoYoverse Player Profile | UTS Desain Web
+</footer>
+
+</body>
+</html>
